@@ -21,6 +21,7 @@ int main() {
     string filename;
     char isPuzzleDone;
     do {
+        cout << "============================" << endl;
         cout << "Masukkan nama file : ";
         cin >> filename;
         string filedir = "../test/" + filename;
@@ -52,6 +53,7 @@ int main() {
         cout << "Apakah anda ingin memecahkan puzzle lain? (y/n)" << endl;
         cin >> isPuzzleDone;
     } while ((isPuzzleDone == 'Y') || (isPuzzleDone == 'y'));
+    cout << "============================" << endl;
     cout << "\nWord search puzzle solver by Kristo Abdi 13520058." << endl;
 }
 
