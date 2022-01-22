@@ -19,31 +19,40 @@ int counter;
 
 int main() {
     string filename;
-    cout << "Masukkan nama file : ";
-    cin >> filename;
-    ifstream file(filename.c_str());
-    matrix board;
-    board = loadMatrix(file);
-    printMatrix(board);
-    vector<string> answers = loadAnswers(file);
-    auto start = high_resolution_clock::now();
-    for (const string& answer : answers) {
-        for (int i = 0; i < board.size(); i++) {
-            for (int j = 0; j < board[i].size(); j++) {
-                for (int dr = -1; dr <= 1; dr++) {
-                    for (int dc = -1; dc <= 1; dc++) {
-                        if (dr == 0 && dc == 0) continue;
-                        check(board, answer, i, j, dr, dc);
+    char isPuzzleDone;
+    do {
+        cout << "Masukkan nama file : ";
+        cin >> filename;
+        string filedir = "../test/" + filename;
+        ifstream file(filedir.c_str());
+        matrix board;
+        board = loadMatrix(file);
+        printMatrix(board);
+        vector<string> answers = loadAnswers(file);
+        auto start = high_resolution_clock::now();
+        for (const string& answer : answers) {
+            for (int i = 0; i < board.size(); i++) {
+                for (int j = 0; j < board[i].size(); j++) {
+                    for (int dr = -1; dr <= 1; dr++) {
+                        for (int dc = -1; dc <= 1; dc++) {
+                            if (dr == 0 && dc == 0) continue;
+                            check(board, answer, i, j, dr, dc);
+                        }
                     }
                 }
             }
         }
-    }
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
-    cout << "Time taken by program: " << duration.count() << " microseconds" << endl;
-    cout << "Jumlah total perbandingan huruf yang dilakukan untuk menemukan kata di dalam puzzle: " << counter << " kali" << endl;
-    file.close();
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        cout << "Time taken by program: " << duration.count() << "seconds" << endl;
+        cout << "Jumlah total perbandingan huruf yang dilakukan untuk menemukan kata di dalam puzzle: " << counter << " kali" << "\n\n";
+        file.close();
+
+        isPuzzleDone = 'n';
+        cout << "Apakah anda ingin memecahkan puzzle lain? (y/n)" << endl;
+        cin >> isPuzzleDone;
+    } while ((isPuzzleDone == 'Y') || (isPuzzleDone == 'y'));
+    cout << "\nWord search puzzle solver by Kristo Abdi 13520058." << endl;
 }
 
 matrix loadMatrix(ifstream& file) {
