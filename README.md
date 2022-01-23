@@ -8,7 +8,7 @@ Semester 2 Tahun 2021/2022
 ```
 ## Requirement
 ```bash
-C++14 or C++11
+C++14
 ```
 
 ## Setup

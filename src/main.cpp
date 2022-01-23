@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <sstream>
 #include <vector>
 #include <chrono>
 using namespace std;
@@ -95,6 +94,13 @@ void printMatrix(matrix mat) {
     }
 }
 
+string clean(string s) {
+    // sometimes the file can have CRLF ending, so we need to clean the string first before using it.
+    if (s.length() == 0) return s;
+    if (s[s.length()-1] != '\x0D') return s;
+    return s.substr(0, s.length()-1);
+}
+
 void check(matrix mat, string answer, int r, int c, int dr, int dc) {
     bool correct = true;
     matrix res = mat;
@@ -130,9 +136,3 @@ void check(matrix mat, string answer, int r, int c, int dr, int dc) {
     cout << endl;
 }
 
-string clean(string s) {
-    // sometimes the file can have CRLF ending, so we need to clean the string first before using it.
-    if (s.length() == 0) return s;
-    if (s[s.length()-1] != '\x0D') return s;
-    return s.substr(0, s.length()-1);
-}
