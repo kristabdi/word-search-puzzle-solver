@@ -15,8 +15,8 @@ C++14
 After cloning the repository
 ```bash 
 cd word-search-puzzle-solver
-cd bin
-1. Select main.exe
-2. Input the name of the file you want to solve (ex: `test.txt`)
-3. If you want to solve another puzzle, type `y`, otherwise, type `n`
+1. Place the text file you want to solve in the folder test
+2. Open the bin folder, click the main.exe 
+3. Input the name of the file you want to solve (ex: `test.txt`)
+4. If you want to solve another puzzle, type `y`, otherwise, type `n`
 ```
