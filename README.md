@@ -1,6 +1,6 @@
 # Word-Search-Puzzle-Solver
 
-# Kristo Abdi WIguna - 13520058
+# Kristo Abdi Wiguna - 13520058
 ```bash 
 Tugas Kecil 1 IF 2211 Strategi Algoritma
 PENYELESAIAN WORD SEARCH PUZZLE DENGAN ALGORITMA BRUTE FORCE
